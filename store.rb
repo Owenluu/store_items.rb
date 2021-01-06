@@ -2,11 +2,11 @@ class Store_items
   attr_reader :input_item, :input_color, :input_size, :input_price
   attr_writer :get_item_name
 
-  def initialize(input_item, input_color, input_size, input_price)
-    @item = input_item
-    @color = input_color
-    @size = input_size
-    @price = input_price
+  def initialize(input_options)
+    @item = input_options[:item]
+    @color = input_options[:color]
+    @size = input_options[:size]
+    @price = input_options[:price]
   end
 
   #def input_item
@@ -34,6 +34,6 @@ class Store_items
   end
 end
 
-store_items = Store_items.new("Cup", "White", "Small", 5)
+store_items = Store_items.new({ :item => "Cup", :color => "White", :size => "Small", :price => 5 }) #to make this easier we can do something called input options which is a hash.
 
 store_items.print_info
